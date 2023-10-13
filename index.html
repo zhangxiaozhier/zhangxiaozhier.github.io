@@ -6,10 +6,32 @@
   <link rel="stylesheet" href="normalize.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="prefixfree.min.js"></script>
+<style type="text/css">
+.posdiv{
+    width: 1000px;
+    height: 1000px;
+    background: pink;
+    margin:0 auto
+ 
+    /* 给父元素添加相对定位，让子元素相对父元素进行偏移 */
+    position: relative; 
+}
+ 
+.posdiv img{
+    width: 500px;
+ 
+    /* 老生常谈的方法，先让子元素的上边界处于父元素中间线的位置，在让子元素向上偏移自身的50%即可 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+ 
+    /* 此处最好不要有margin-top: -100px; 这样的写法，不具有普遍适用性，假如是一个动态网页，需要从服务器获取资源，图片的大小可能随时会变，这种方法会直接失效，而且通过上外边距来调整位置就是在凑答案，强烈不推荐这种写法。向上移动自身的一半即可*/
+}
+</style>
 
 </head>
 <body>
-<div class="flexbox">
+<div class="posdiv">
     <img src="./个人简历.png"  alt="简历">
 </div>
 </body>
